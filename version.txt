@@ -1,0 +1,10 @@
+################################################################
+#                     SIGMA Informatique
+################################################################
+# ISSUE TRACKER : https://github.com/SigmaInformatique/yum-plugin-patternvlock/issues
+################################################################
+# the version number should also be put in _easyfpm/mapping.conf
+
+20150910 Version 0.1 Erwan SEITE (eseite@sigma.fr)
+  first release on github
+  version asked to be integrated to yum-plugins
