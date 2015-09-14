@@ -1,10 +1,16 @@
 yum-plugin-patternvlock
-=============================
+=======================
 
 Yum's plugin forcing the usage of some packages versions or excluding some others versions from a pattern list
 
-Packaging
----------
+License & Copyright
+-------------------
+
+yum-plugin-patternvlock is licensed under [GPL v2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt).
+Please, see the [LICENSE](https://github.com/SigmaInformatique/yum-plugin-patternvlock/blob/master/LICENSE) file for details.
+
+Packaging and installing
+------------------------
 
 To make your own package:
 ```
@@ -23,13 +29,21 @@ Created package /tmp/easyfpm-output-dir20150826-8275-fln2lb/yum-plugin-patternvl
 Package moved to /tmp/yum-plugin-patternvlock-0.1-1.el7.noarch.rpm
 user@host#
 ```
-Then, you have to deploy the wanted package(s) on your repository or on your server
+Then, you have to deploy the wanted package(s) on your repository or on your server.
+
+if you have your own repository:
+```
+[root@server# ~] yum install yum-plugin-patternvlock
+```
+or installing it with rpm:
+```
+[root@server# ~] rpm -ivh /tmp/yum-plugin-patternvlock-0.1-1.el6.noarch.rpm
+```
 
 Example of use
 --------------
 
-Sunopsis: We have the Puppetlabs repository in our sources. We don't want puppet version 3.8, just want to stay in the 3.7 branch for the moment. However, we do not want the latest version: 3.7.5
-
+We have the Puppetlabs repository in our sources. We don't want puppet version 3.8, just want to stay in the 3.7 branch for the moment. However, we do not want the latest version: 3.7.5
 
 ```
 [root@testinstallcentos ~]# rpm -qa puppet
@@ -256,3 +270,11 @@ Complete!
 ```
 
 Job is done :-)
+
+Want to contribute ?
+--------------------
+Please, see the [CONTRIBUTING](https://github.com/SigmaInformatique/yum-plugin-patternvlock/blob/master/CONTRIBUTING.md) file.
+
+Found a bug?
+------------
+Please, use the [GitHub issues](https://github.com/SigmaInformatique/yum-plugin-patternvlock/issues).
