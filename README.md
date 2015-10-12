@@ -13,7 +13,7 @@ Packaging and installing
 ------------------------
 
 To make your own package:
-```
+```shell
 user@host# gem install easyfpm
 user@host# git clone https://github.com/SigmaInformatique/yum-plugin-patternvlock.git
 user@host# easyfpm --config-file yum-plugin-patternvlock/_easyfpm/easyfpm.cfg --pkg-src-dir yum-plugin-patternvlock --pkg-output-dir /tmp 
@@ -32,11 +32,11 @@ user@host#
 Then, you have to deploy the wanted package(s) on your repository or on your server.
 
 if you have your own repository:
-```
+```shell
 [root@server# ~] yum install yum-plugin-patternvlock
 ```
 or installing it with rpm:
-```
+```shell
 [root@server# ~] rpm -ivh /tmp/yum-plugin-patternvlock-0.1-1.el6.noarch.rpm
 ```
 
@@ -45,7 +45,7 @@ Example of use
 
 We have the Puppetlabs repository in our sources. We don't want puppet version 3.8, just want to stay in the 3.7 branch for the moment. However, we do not want the latest version: 3.7.5
 
-```
+```shell
 [root@testinstallcentos ~]# rpm -qa puppet
 puppet-3.6.2-1.el6.noarch
 [root@testinstallcentos ~]# 
@@ -53,7 +53,7 @@ puppet-3.6.2-1.el6.noarch
 
 We have puppet installed and have to upgrade it (source puppetlabs repository).
 
-```
+```shell
 [root@testinstallcentos ~]# yum update
 Loaded plugins: security
 Setting up Update Process
@@ -87,7 +87,7 @@ Your transaction was saved, rerun it with:
 
 The 3.8.x version is not validated for us, we only want a 3.7.x version.
 
-```
+```shell
 [root@testinstallcentos ~]# yum patternvlock add 'puppet-3.7.*'
 Loaded plugins: patternvlock, security
 patternvlock: 1 pattern(s) added
@@ -104,7 +104,7 @@ puppet-3.7.*
 
 Let’s look what we can have now:
 
-```
+```shell
 [root@testinstallcentos ~]# yum update
 Loaded plugins: patternvlock, security
 Setting up Update Process
@@ -138,7 +138,7 @@ Your transaction was saved, rerun it with:
 
 Not bad, but if we don’t want the version 3.7.5 (for example, because of a known bug)
 
-```
+```shell
 [root@testinstallcentos ~]# yum patternvlock exclude 'puppet-3.7.5'
 Loaded plugins: patternvlock, security
 patternvlock: 1 exclusion(s) added
@@ -152,7 +152,7 @@ patternvlock list done
 
 Now, let see what yum can give us.
 
-```
+```shell
 [root@testinstallcentos ~]# yum update
 Loaded plugins: patternvlock, security
 Setting up Update Process
@@ -198,7 +198,7 @@ Complete!
 
 That’s ok, we made our update, let's try if everything is ok:
 
-```
+```shell
 [root@testinstallcentos ~]# yum update
 Loaded plugins: patternvlock, security
 Setting up Update Process
@@ -210,7 +210,7 @@ No Packages marked for Update
 
 Now, we made a mistake in our tests, we can stop the blacklist for puppet-3.7.5:
 
-```
+```shell
 [root@testinstallcentos ~]# yum patternvlock list
 Loaded plugins: patternvlock, security
 puppet-3.7.*
@@ -225,7 +225,7 @@ patternvlock deleted: 1
 
 Ok, let’s try:
 
-```
+```shell
 [root@testinstallcentos ~]# yum update
 Loaded plugins: patternvlock, security
 Setting up Update Process
